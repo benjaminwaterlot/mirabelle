@@ -1,9 +1,0 @@
-endpoint: https://eu1.prisma.sh/benjamin-waterlot/prismaserver/dev
-datamodel: datamodel.graphql
-
-generate:
-    - generator: javascript-client
-      output: ./generated/prisma-client/
-hooks:
-    post-deploy:
-        - prisma generate
