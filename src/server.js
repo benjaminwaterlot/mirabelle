@@ -25,7 +25,9 @@ app.use(middleware_jwt_invalid);
 (async () => {
 	apolloServer.applyMiddleware({ app });
 
-	app.listen({ port: 4000 }, () => console.debug('\n✪ Server ready ! 🚀'));
+	app.listen({ port: process.env.PORT || 5000 }, () =>
+		console.debug('\n✪ Server ready ! 🚀'),
+	);
 })();
 
 // Catch unhandled errors and log them, then restart NodeJS.
