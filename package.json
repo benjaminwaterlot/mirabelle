@@ -5,7 +5,8 @@
 	"main": "index.js",
 	"repository": "https://github.com/benjaminwaterlot/mirabelle",
 	"scripts": {
-		"start": "DATABASE_URL=$(heroku config:get DATABASE_URL -a basilic-mirabelle) ./node_modules/nodemon/bin/nodemon.js -r esm src/server.js"
+		"start": "node -r esm src/server.js",
+		"dev": "DATABASE_URL=$(heroku config:get DATABASE_URL -a basilic-mirabelle) ./node_modules/nodemon/bin/nodemon.js -r esm src/server.js"
 	},
 	"keywords": [],
 	"author": "",
