@@ -24,7 +24,6 @@ const getContextFromRequest = async (req, DB) => {
 	console.debug(`▻ User recognized as :\n`, user);
 
 	// User's infos are complete.
-	console.log(`CONTEXT DB IS `, DB.models);
 	return { user: user, db: DB };
 };
 
