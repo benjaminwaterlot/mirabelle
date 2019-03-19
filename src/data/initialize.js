@@ -1,10 +1,10 @@
 const S = require('sequelize');
 
-import getCustomerModel from '../data/customer/customerModel';
-import getGroupModel from '../data/group/groupModel';
-import getProductModel from '../data/product/productModel';
-import getWikiModel from '../data/wiki/wikiModel';
-import getNewsletterModel from '../data/newsletter/newsletterModel';
+import getCustomerModel from './customer/customerModel';
+import getGroupModel from './group/groupModel';
+import getProductModel from './product/productModel';
+import getWikiModel from './wiki/wikiModel';
+import getNewsletterModel from './newsletter/newsletterModel';
 
 class DB {
 	constructor() {
@@ -32,7 +32,7 @@ class DB {
 		const Group = getGroupModel(db);
 		const Product = getProductModel(db);
 		const Wiki = getWikiModel(db);
-		const Newsletters = getNewsletterModel(db);
+		// const Newsletters = getNewsletterModel(db);
 
 		// Link the models.
 		Customer.belongsTo(Group);

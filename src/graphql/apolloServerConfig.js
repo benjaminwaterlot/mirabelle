@@ -5,7 +5,7 @@ import resolvers from './resolvers';
 import schemas from './schemas';
 import { globalResolvers, globalSchemas } from './initialize';
 import authDirective from './directives/auth';
-import DB from '../database/initialize';
+import DB from '../data/initialize';
 
 const getContextFromRequest = async (req, DB) => {
 	const rawUser = req.user;
@@ -34,4 +34,7 @@ export default new ApolloServer({
 	context: ({ req }) => {
 		return getContextFromRequest(req, DB.db);
 	},
+	// TODO : remove these lines before getting live.
+	introspection: true,
+	playground: true,
 });

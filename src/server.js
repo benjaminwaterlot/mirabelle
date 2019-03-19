@@ -5,7 +5,7 @@ import middleware_jwt from './middlewares/middleware_jwt';
 import middleware_jwt_invalid from './middlewares/middleware_jwt_invalid';
 
 import apolloServer from './graphql/apolloServerConfig';
-import initializeDB from './database/initialize';
+import initializeDB from './data/initialize';
 
 const app = express();
 
