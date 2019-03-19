@@ -1,0 +1,50 @@
+[
+	{
+		"ref": "DECO",
+		"name": "Panier Découverte",
+		"description_short": "Une sélection de fruits et légumes pour vos repas de tous les jours",
+		"image": "PNBDECO0.jpg",
+		"bio": true,
+		"origin": "fabriqué à l'ESAT de Nanterre",
+		"manufacturing_unit": "par panier",
+		"manufacturing_supplier": "ESAT",
+		"manufacturing_process": "BIO",
+		"certification": true
+	},
+	{
+		"ref": "FRUI",
+		"name": "Super Fruitier",
+		"description_short": "Faites le plein d'énergie grâce aux vitamines de nos super fruits",
+		"image": "PNBFRUI0.jpg",
+		"bio": true,
+		"origin": "fabriqué à l'ESAT de Nanterre",
+		"manufacturing_unit": "par panier",
+		"manufacturing_supplier": "ESAT",
+		"manufacturing_process": "BIO",
+		"certification": true
+	},
+	{
+		"ref": "LEGU",
+		"name": "Super Légumier",
+		"description_short": "Les meilleurs légumes bio du moment pour se faire plaisir sainement",
+		"image": "PNBLEGU0.jpg",
+		"bio": true,
+		"origin": "fabriqué à l'ESAT de Nanterre",
+		"manufacturing_unit": "par panier",
+		"manufacturing_supplier": "ESAT",
+		"manufacturing_process": "BIO",
+		"certification": true
+	},
+	{
+		"ref": "SMIX",
+		"name": "Super Mix",
+		"description_short": "Une sélection des meilleurs fruits et légumes de la saison",
+		"image": "PNBSMIX0.jpg",
+		"bio": true,
+		"origin": "fabriqué à l'ESAT de Nanterre",
+		"manufacturing_unit": "par panier",
+		"manufacturing_supplier": "ESAT",
+		"manufacturing_process": "BIO",
+		"certification": true
+	}
+]

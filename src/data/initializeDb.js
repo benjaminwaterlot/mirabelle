@@ -5,6 +5,8 @@ import getGroupModel from './group/groupModel';
 import getProductModel from './product/productModel';
 import getWikiModel from './wiki/wikiModel';
 import getNewsletterModel from './newsletter/newsletterModel';
+import getPackModel from './pack/packModel';
+import getPackWikiModel from './pack_wiki/packWikiModel';
 
 class DB {
 	constructor() {
@@ -14,9 +16,8 @@ class DB {
 			dialectOptions: {
 				ssl: true,
 			},
-			// logging: true,
+			// logging: false,
 		});
-		// this.initializeDb(this.db);
 	}
 
 	// Connect to the db.
@@ -31,19 +32,28 @@ class DB {
 				throw err;
 			});
 
-		// Define the Sequelize models.
+		// Define and link the Sequelize models.
 		const Customer = getCustomerModel(this.db);
 		const Group = getGroupModel(this.db);
-		const Product = getProductModel(this.db);
-		const Wiki = getWikiModel(this.db);
-		const Newsletters = getNewsletterModel(this.db);
-
-		// Link the models.
 		Customer.belongsTo(Group);
 		Group.hasMany(Customer);
 
+		const Product = getProductModel(this.db);
+		const Wiki = getWikiModel(this.db);
 		Product.belongsTo(Wiki, { foreignKey: 'wiki_ref', targetKey: 'ref' });
 		Wiki.hasMany(Product);
+
+		const Pack = getPackModel(this.db);
+		const PackWiki = getPackWikiModel(this.db);
+		Pack.belongsTo(PackWiki, {
+			foreignKey: 'pack_wiki_ref',
+			targetKey: 'ref',
+		});
+		// PackWiki.hasMany(Pack);
+
+		const Newsletters = getNewsletterModel(this.db);
+
+		// Link the models.
 
 		// Synchronyze these models with the DB.
 		await this.db.sync();
