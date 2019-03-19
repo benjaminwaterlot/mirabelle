@@ -20,7 +20,6 @@ export default db => {
 		},
 		origin: {
 			type: S.STRING,
-			allowNull: true,
 		},
 		category: {
 			type: S.ENUM(productCategories),
@@ -28,11 +27,9 @@ export default db => {
 		},
 		price_ht: {
 			type: S.DOUBLE,
-			allowNull: true,
 		},
 		promo_price_ht: {
 			type: S.DOUBLE,
-			allowNull: true,
 		},
 		min_quantity: {
 			type: S.INTEGER,
@@ -79,27 +76,21 @@ export default db => {
 		},
 		manufacturing_supplier: {
 			type: S.STRING,
-			allowNull: true,
 		},
 		manufacturing_process: {
 			type: S.STRING,
-			allowNull: true,
 		},
 		manufacturing_lettring: {
 			type: S.STRING,
-			allowNull: true,
 		},
 		group_whitelist: {
 			type: S.ARRAY(S.INTEGER),
-			allowNull: true,
 		},
 		group_blacklist: {
 			type: S.ARRAY(S.INTEGER),
-			allowNull: true,
 		},
 		certification: {
 			type: S.BOOLEAN,
-			allowNull: true,
 		},
 		// TODO: LINK THE PRODUCT WITH HIS WIKI ID.
 	});

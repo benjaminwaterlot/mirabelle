@@ -49,11 +49,10 @@ class DB {
 			foreignKey: 'pack_wiki_ref',
 			targetKey: 'ref',
 		});
-		// PackWiki.hasMany(Pack);
+
+		// const Users =
 
 		const Newsletters = getNewsletterModel(this.db);
-
-		// Link the models.
 
 		// Synchronyze these models with the DB.
 		await this.db.sync();

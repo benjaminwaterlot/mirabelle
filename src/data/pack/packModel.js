@@ -22,23 +22,18 @@ export default db => {
 		},
 		price_ht: {
 			type: S.DOUBLE,
-			allowNull: true,
 		},
 		promo_price_ht: {
 			type: S.DOUBLE,
-			allowNull: true,
 		},
 		subscription_price_ht: {
 			type: S.DOUBLE,
-			allowNull: true,
 		},
 		nb_persons: {
 			type: S.STRING,
-			allowNull: true,
 		},
 		weight: {
 			type: S.INTEGER,
-			allowNull: true,
 		},
 	});
 };

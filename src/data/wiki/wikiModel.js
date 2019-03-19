@@ -29,23 +29,18 @@ export default db => {
 		},
 		conservation_fridge: {
 			type: S.STRING,
-			allowNull: true,
 		},
 		conservation_freezer: {
 			type: S.STRING,
-			allowNull: true,
 		},
 		preparation: {
 			type: S.TEXT,
-			allowNull: true,
 		},
 		nutrition: {
 			type: S.TEXT,
-			allowNull: true,
 		},
 		supply_ref: {
 			type: S.STRING,
-			allowNull: true,
 		},
 		image: {
 			type: S.STRING,

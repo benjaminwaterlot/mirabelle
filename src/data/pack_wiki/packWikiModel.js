@@ -17,7 +17,6 @@ export default db => {
 		},
 		description_long: {
 			type: S.STRING,
-			allowNull: true,
 		},
 		image: {
 			type: S.STRING,
