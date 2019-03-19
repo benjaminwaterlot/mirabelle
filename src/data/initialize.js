@@ -32,7 +32,7 @@ class DB {
 		const Group = getGroupModel(db);
 		const Product = getProductModel(db);
 		const Wiki = getWikiModel(db);
-		// const Newsletters = getNewsletterModel(db);
+		const Newsletters = getNewsletterModel(db);
 
 		// Link the models.
 		Customer.belongsTo(Group);
