@@ -8,17 +8,20 @@ import getNewsletterModel from './newsletter/newsletterModel';
 
 class DB {
 	constructor() {
-		this.db = new S(process.env.DATABASE_URL, {
+		this.db = new S(process.env.HEROKU_POSTGRESQL_CRIMSON_URL, {
 			dialect: 'postgres',
 			operatorsAliases: false,
 			dialectOptions: {
 				ssl: true,
 			},
+			// logging: true,
 		});
-		this.initializeDb(this.db);
+		// this.initializeDb(this.db);
 	}
-	async initializeDb(db) {
-		await db
+
+	// Connect to the db.
+	async initializeDb() {
+		await this.db
 			.authenticate()
 			.then(() =>
 				console.log('✪ Connection to POSTGRES has been established.'),
@@ -28,21 +31,23 @@ class DB {
 				throw err;
 			});
 
-		const Customer = getCustomerModel(db);
-		const Group = getGroupModel(db);
-		const Product = getProductModel(db);
-		const Wiki = getWikiModel(db);
-		const Newsletters = getNewsletterModel(db);
+		// Define the Sequelize models.
+		const Customer = getCustomerModel(this.db);
+		const Group = getGroupModel(this.db);
+		const Product = getProductModel(this.db);
+		const Wiki = getWikiModel(this.db);
+		const Newsletters = getNewsletterModel(this.db);
 
 		// Link the models.
 		Customer.belongsTo(Group);
 		Group.hasMany(Customer);
 
-		Product.belongsTo(Wiki);
+		Product.belongsTo(Wiki, { foreignKey: 'wiki_ref', targetKey: 'ref' });
 		Wiki.hasMany(Product);
 
 		// Synchronyze these models with the DB.
-		await db.sync();
+		await this.db.sync();
+		return true;
 	}
 }
 

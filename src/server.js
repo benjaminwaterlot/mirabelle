@@ -5,7 +5,7 @@ import middleware_jwt from './middlewares/middleware_jwt';
 import middleware_jwt_invalid from './middlewares/middleware_jwt_invalid';
 
 import apolloServer from './graphql/apolloServerConfig';
-import initializeDB from './data/initialize';
+import DB from './data/initializeDb';
 
 const app = express();
 
@@ -23,6 +23,7 @@ app.use(middleware_jwt_invalid);
 // Launch the server
 
 (async () => {
+	await DB.initializeDb();
 	apolloServer.applyMiddleware({ app });
 	console.log('✪ ENVIRONMENT IS : ', process.env.NODE_ENV);
 

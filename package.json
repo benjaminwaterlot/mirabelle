@@ -6,7 +6,8 @@
 	"repository": "https://github.com/benjaminwaterlot/mirabelle",
 	"scripts": {
 		"start": "NODE_ENV=production node -r esm src/server.js",
-		"dev": "NODE_ENV=dev DATABASE_URL=$(heroku config:get DATABASE_URL -a basilic-mirabelle) ./node_modules/nodemon/bin/nodemon.js -r esm src/server.js"
+		"dev": "NODE_ENV=dev HEROKU_POSTGRESQL_CRIMSON_URL=$(heroku config:get HEROKU_POSTGRESQL_CRIMSON_URL -a basilic-mirabelle) ./node_modules/nodemon/bin/nodemon.js -r esm src/server.js",
+		"resetDatabase": "PORT=4001 NODE_ENV=dev HEROKU_POSTGRESQL_CRIMSON_URL=$(heroku config:get HEROKU_POSTGRESQL_CRIMSON_URL -a basilic-mirabelle) node -r esm ./standalone/resetDatabase.js"
 	},
 	"keywords": [],
 	"author": "",
