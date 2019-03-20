@@ -14,7 +14,7 @@ export default async db => {
 	await setCustomerGroups(allCustomers, allGroups);
 
 	db.models.products.bulkCreate(productsdb);
-	db.models.wikis.bulkCreate(wikisdb);
+	db.models.wiki_products.bulkCreate(wikisdb);
 	// const allProducts = await insertProducts(db.models);
 	// const allWikis = await insertWikis(db.models);
 	// await setProductWikis(allProducts, allWikis);

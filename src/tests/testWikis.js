@@ -1,7 +1,7 @@
 import faker from '../database/faker';
 const _ = require('lodash');
 
-export const insertWikis = async ({ wikis: Wiki }) => {
+export const insertWikis = async ({ wiki_products: Wiki }) => {
 	const fakeWikis = [];
 	for (const i of _.range(9)) {
 		fakeWikis[i] = Wiki.create({

@@ -23,9 +23,9 @@ app.use(middleware_jwt_invalid);
 // Launch the server
 
 (async () => {
+	console.log('✪ ENVIRONMENT IS : ', process.env.NODE_ENV);
 	await DB.initializeDb();
 	apolloServer.applyMiddleware({ app });
-	console.log('✪ ENVIRONMENT IS : ', process.env.NODE_ENV);
 
 	app.listen({ port: process.env.PORT || 4000 }, () =>
 		console.debug('\n✪ Server ready ! 🚀'),

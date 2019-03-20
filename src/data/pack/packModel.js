@@ -8,7 +8,7 @@ export default db => {
 			unique: true,
 			allowNull: false,
 		},
-		pack_wiki_ref: {
+		wiki_pack_ref: {
 			type: S.STRING,
 			allowNull: false,
 		},

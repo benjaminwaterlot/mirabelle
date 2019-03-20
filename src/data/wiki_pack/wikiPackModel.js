@@ -1,7 +1,7 @@
 const S = require('sequelize');
 
 export default db => {
-	return db.define('wikis', {
+	return db.define('wiki_packs', {
 		ref: {
 			type: S.STRING,
 			unique: true,
@@ -12,38 +12,38 @@ export default db => {
 			allowNull: false,
 		},
 		description_short: {
-			type: S.TEXT,
+			type: S.STRING,
 			allowNull: false,
 		},
 		description_long: {
-			type: S.TEXT,
-			allowNull: false,
-		},
-		fragility: {
-			type: S.INTEGER,
-			allowNull: false,
-		},
-		volume: {
-			type: S.DOUBLE,
-			allowNull: false,
-		},
-		conservation_fridge: {
-			type: S.STRING,
-		},
-		conservation_freezer: {
-			type: S.STRING,
-		},
-		preparation: {
-			type: S.TEXT,
-		},
-		nutrition: {
-			type: S.TEXT,
-		},
-		supply_ref: {
 			type: S.STRING,
 		},
 		image: {
 			type: S.STRING,
+			allowNull: false,
+		},
+		bio: {
+			type: S.BOOLEAN,
+			allowNull: false,
+		},
+		origin: {
+			type: S.STRING,
+			allowNull: false,
+		},
+		manufacturing_unit: {
+			type: S.STRING,
+			allowNull: false,
+		},
+		manufacturing_supplier: {
+			type: S.STRING,
+			allowNull: false,
+		},
+		manufacturing_process: {
+			type: S.STRING,
+			allowNull: false,
+		},
+		certification: {
+			type: S.BOOLEAN,
 			allowNull: false,
 		},
 	});
