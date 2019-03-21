@@ -2,7 +2,7 @@ import faker from '../data/faker';
 import groupTypes from '../database/generic/groupTypes';
 const _ = require('lodash');
 
-export const insertCustomers = async ({ customers: Customer }) => {
+export const getFakeCustomers = async number => {
 	const fakeCustomers = [];
 	for (const i of _.range(10)) {
 		fakeCustomers[i] = Customer.create({

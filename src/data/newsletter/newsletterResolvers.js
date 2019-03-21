@@ -6,8 +6,9 @@ export default {
 
 			await newsletters.findOrCreate({ where: { email: emailInput } });
 
-			const numberOfSubscribers = await newsletters.count();
-			const answer = `${emailInput} a bien été ajouté à nos newsletters !\n Vous êtes le ${numberOfSubscribers}ème :)`;
+			const subCount = await newsletters.count();
+			const numberToText = `${subCount}${subCount > 1 ? 'ème' : 'er'}`;
+			const answer = `${emailInput} a bien été ajouté à nos newsletters !\n Vous êtes le ${numberToText} :)`;
 			console.log(answer);
 
 			return answer;

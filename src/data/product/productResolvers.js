@@ -1,9 +1,16 @@
 export default {
 	Query: {
 		getCurrentProducts: async (obj, args, context) => {
-			const productsTable = context.db.models.products;
+			const products = context.db.models.products;
 
-			const allProducts = await productsTable.findAll({});
+			const allProducts = await products.findAll({
+				include: [
+					{
+						model: context.db.models.wiki_products,
+					},
+				],
+			});
+			console.log(allProducts);
 
 			return allProducts;
 		},
