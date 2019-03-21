@@ -24,4 +24,7 @@ import DB from '../src/data/initializeDb';
 	await DB.db.models.packs
 		.bulkCreate(packData)
 		.catch(err => console.error(err, err.parent.detail));
+
+	console.log('DONE :)');
+	process.exit(0);
 })();

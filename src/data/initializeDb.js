@@ -7,6 +7,7 @@ import getWikiProductsModel from './wiki_product/wikiProductModel';
 import getWikiPackModel from './wiki_pack/wikiPackModel';
 import getNewsletterModel from './newsletter/newsletterModel';
 import getPackModel from './pack/packModel';
+import getBasketModel from './basket/basketModel';
 
 const getDbUrl = () => {
 	const env = process.env.NODE_ENV;
@@ -69,6 +70,27 @@ class DB {
 		});
 
 		const Newsletters = getNewsletterModel(this.db);
+
+		// Product.belongsToMany(Customer, {through: 'product_basket', as: 'basket_id'})
+		// Customer.belongsToMany(Product, {})
+		const Basket = getBasketModel(this.db);
+		Basket.belongsToMany(Product, {
+			through: 'basket_products',
+			as: 'Product',
+			foreignKey: 'product_ref',
+			// otherKey: ''
+		});
+		// Product.belongsToMany(Basket, {
+		// 	through: 'basket_products',
+		// 	as: 'Basket',
+		// });
+		// TEST !
+		const sampleProduct = await Product.findOne({
+			where: { name: 'Kiwi' },
+		});
+		const newBasket = await Basket.create({});
+		newBasket.addProduct(sampleProduct);
+		// sampleProduct.addBasket(newBasket);
 
 		// Synchronyze these models with the DB.
 		await this.db.sync();
