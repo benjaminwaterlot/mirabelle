@@ -10,7 +10,7 @@ export default {
 					},
 				],
 			});
-			console.log(allProducts);
+			// console.log(allProducts);
 
 			return allProducts;
 		},

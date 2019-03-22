@@ -74,22 +74,21 @@ class DB {
 		// Product.belongsToMany(Customer, {through: 'product_basket', as: 'basket_id'})
 		// Customer.belongsToMany(Product, {})
 		const Basket = getBasketModel(this.db);
-		Basket.belongsToMany(Product, {
-			through: 'basket_products',
-			as: 'Product',
-			foreignKey: 'product_ref',
-			// otherKey: ''
-		});
-		// Product.belongsToMany(Basket, {
-		// 	through: 'basket_products',
-		// 	as: 'Basket',
-		// });
-		// TEST !
+		Basket.belongsTo(Customer);
+		Customer.hasOne(Basket);
+
+		Basket.belongsToMany(Product, { through: 'ProductsBasket' });
+
 		const sampleProduct = await Product.findOne({
-			where: { name: 'Kiwi' },
+			where: { id: 5 },
 		});
-		const newBasket = await Basket.create({});
-		newBasket.addProduct(sampleProduct);
+
+		const sampleCustomer = await Customer.findOne({});
+		await sampleCustomer.setBasket({});
+		const sampleCustomerBasket = sampleCustomer.getBasket();
+		// const newBasket = await Basket.create({});
+		await sampleCustomerBasket.addProduct(sampleProduct);
+		// await newBasket.addProduct(sampleProduct);
 		// sampleProduct.addBasket(newBasket);
 
 		// Synchronyze these models with the DB.

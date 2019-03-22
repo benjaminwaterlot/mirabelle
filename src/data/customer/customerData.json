@@ -1,0 +1,14 @@
+[
+	{
+		"surname": "Benjamin",
+		"lastname": "Waterlot",
+		"group_type": "HOME",
+		"email": "test@test.fr"
+	},
+	{
+		"surname": "Rodolphe",
+		"lastname": "Brunetti",
+		"group_type": "HOME",
+		"email": "test2@test.fr"
+	}
+]
