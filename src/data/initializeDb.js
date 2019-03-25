@@ -1,4 +1,5 @@
 const S = require('sequelize');
+const chalk = require('chalk');
 
 import getCustomerModel from './customer/customerModel';
 import getGroupModel from './group/groupModel';
@@ -7,7 +8,7 @@ import getWikiProductsModel from './wiki_product/wikiProductModel';
 import getWikiPackModel from './wiki_pack/wikiPackModel';
 import getNewsletterModel from './newsletter/newsletterModel';
 import getPackModel from './pack/packModel';
-import getBasketModel from './basket/basketModel';
+import getCartItemModel from './cart_item/cartItemModel';
 
 const getDbUrl = () => {
 	const env = process.env.NODE_ENV;
@@ -33,7 +34,7 @@ class DB {
 			define: {
 				underscored: true,
 			},
-			// logging: false,
+			logging: text => console.log(chalk.dim(text)),
 		});
 	}
 
@@ -70,6 +71,22 @@ class DB {
 		});
 
 		const Newsletters = getNewsletterModel(this.db);
+
+		const CartItem = getCartItemModel(this.db);
+		// CartItem.hasOne(Customer);
+		Customer.hasMany(CartItem, { as: 'CartItem' });
+
+		CartItem.belongsTo(Product);
+
+		await this.db.sync();
+
+		const sampleCustomer = await Customer.findOne({
+			where: { surname: 'Benjamin' },
+		});
+		const sampleCartItem = await CartItem.create();
+		await sampleCartItem.setProduct(await Product.findOne({}));
+		await sampleCustomer.addCartItem(sampleCartItem);
+		const sampleItems = await sampleCustomer.getCartItem();
 
 		//
 		//

@@ -8,6 +8,11 @@ import authDirective from './directives/auth';
 import DB from '../data/initializeDb';
 
 const getContextFromRequest = async (req, DB) => {
+	// TODO: REMOVE THIS LINE, USED TO TEST IN PLAYGROUND
+
+	// if (!req.user)
+	// 	return { user: { roles: ['GUEST', 'ADMIN'], customerId: 1 }, db: DB };
+
 	const rawUser = req.user;
 	const defaultRole = ['GUEST'];
 	const defaultId = null;
