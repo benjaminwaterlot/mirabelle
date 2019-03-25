@@ -71,25 +71,27 @@ class DB {
 
 		const Newsletters = getNewsletterModel(this.db);
 
-		// Product.belongsToMany(Customer, {through: 'product_basket', as: 'basket_id'})
-		// Customer.belongsToMany(Product, {})
-		const Basket = getBasketModel(this.db);
-		Basket.belongsTo(Customer);
-		Customer.hasOne(Basket);
+		//
+		//
+		// OLD BASKET IMPLEMENTATION
+		// Product.belongsToMany(Customer, {
+		// 	through: 'baskets',
+		// });
+		// Customer.belongsToMany(Product, {
+		// 	through: 'baskets',
+		// 	as: 'BasketProduct',
+		// });
 
-		Basket.belongsToMany(Product, { through: 'ProductsBasket' });
+		// await this.db.sync();
 
-		const sampleProduct = await Product.findOne({
-			where: { id: 5 },
-		});
-
-		const sampleCustomer = await Customer.findOne({});
-		await sampleCustomer.setBasket({});
-		const sampleCustomerBasket = sampleCustomer.getBasket();
-		// const newBasket = await Basket.create({});
-		await sampleCustomerBasket.addProduct(sampleProduct);
-		// await newBasket.addProduct(sampleProduct);
-		// sampleProduct.addBasket(newBasket);
+		// const sampleProduct = await Product.findOne({
+		// 	where: { ref: 'FLBANAN0CR' },
+		// });
+		// const sampleCustomer = await Customer.findOne({});
+		// await sampleCustomer.addBasketProduct(await Product.findOne({}));
+		// OLD BASKET IMPLEMENTATION
+		//
+		//
 
 		// Synchronyze these models with the DB.
 		await this.db.sync();

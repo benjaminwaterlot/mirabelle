@@ -9,6 +9,7 @@ export default db => {
 			type: S.STRING,
 			allowNull: false,
 			unique: true,
+			primaryKey: true,
 		},
 		name: {
 			type: S.STRING,
