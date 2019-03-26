@@ -4,7 +4,8 @@ export default db => {
 	return db.define('wiki_products', {
 		ref: {
 			type: S.STRING,
-			unique: true,
+			primaryKey: true,
+			// unique: true,
 			allowNull: false,
 		},
 		name: {

@@ -9,7 +9,8 @@ export default gql`
 		category: String!
 		price_ht: Float!
 		bio: Boolean!
-		wiki_product: WikiProduct!
+		getWikiProduct: WikiProduct!
+		wiki_product_ref: String!
 	}
 
 	extend type Query {

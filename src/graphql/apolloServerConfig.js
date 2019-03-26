@@ -4,7 +4,6 @@ import log from '../helpers/log';
 
 import resolvers from './resolvers';
 import schemas from './schemas';
-import { globalResolvers, globalSchemas } from './initialize';
 import authDirective from './directives/auth';
 import DB from '../data/initializeDb';
 
@@ -52,9 +51,9 @@ const getContextFromRequest = async (req, DB) => {
 };
 
 export default new ApolloServer({
-	resolvers: _.merge(globalResolvers, resolvers),
+	resolvers,
 	schemaDirectives: { auth: authDirective },
-	typeDefs: [...globalSchemas, ...schemas],
+	typeDefs: schemas,
 	context: ({ req }) => {
 		return getContextFromRequest(req, DB.db);
 	},

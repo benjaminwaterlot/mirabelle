@@ -6,12 +6,9 @@ export default gql`
 		customer_id: Int!
 		role: String!
 		email: String!
-		cart_items: [CartItem]
+		getCartItem: [CartItem]
 	}
 	extend type Query {
 		user(userId: String): User!
 	}
-	# extend type Query {
-	# 	cartItems: [CartItem]
-	# }
 `;

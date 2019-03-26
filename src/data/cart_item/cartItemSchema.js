@@ -4,5 +4,6 @@ export default gql`
 	type CartItem {
 		product_ref: String!
 		user_id: String!
+		getProduct: Product!
 	}
 `;

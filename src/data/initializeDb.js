@@ -3,7 +3,7 @@ const S = require('sequelize');
 import customerModel from './customer/customerModel';
 import groupModel from './group/groupModel';
 import productModel from './product/productModel';
-import wikiProductsModel from './wiki_product/wikiProductModel';
+import wikiProductModel from './wiki_product/wikiProductModel';
 import wikiPackModel from './wiki_pack/wikiPackModel';
 import newsletterModel from './newsletter/newsletterModel';
 import packModel from './pack/packModel';
@@ -60,8 +60,8 @@ class DB {
 		Customer.belongsTo(Group);
 
 		const Product = productModel(this.db);
-		const Wiki = wikiProductsModel(this.db);
-		Product.belongsTo(Wiki, {
+		const WikiProduct = wikiProductModel(this.db);
+		Product.belongsTo(WikiProduct, {
 			foreignKey: 'wiki_product_ref',
 			targetKey: 'ref',
 		});
@@ -77,6 +77,7 @@ class DB {
 		const CartItem = cartItemModel(this.db);
 
 		User.hasMany(CartItem, { as: 'CartItem' });
+		// CartItem.hasOne(User);
 		CartItem.belongsTo(Product);
 
 		await this.db.sync();
@@ -91,6 +92,16 @@ class DB {
 				`The user ${sampleUser.email} has in his cart: `,
 				sampleItems,
 			);
+		}
+		const sampleProduct = await Product.findOne({});
+		try {
+			log.info(sampleProduct);
+			console.log(sampleProduct);
+			// log.info(await sampleProduct.getWikiProduct());
+			// await sampleProduct.setWikiProduct(await WikiProduct.findOne({}));
+			log.info(await sampleProduct.getWikiProduct());
+		} catch (err) {
+			console.error('errrrr', err);
 		}
 
 		//

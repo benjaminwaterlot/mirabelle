@@ -10,17 +10,17 @@ export default {
 			return context.user.userModel;
 		},
 	},
-	User: {
-		cart_items: async (obj, args, context) => {
-			const models = context.db.models;
-			log.info(
-				`Request for cartItems received for ${context.user.customerId}`,
-			);
-			const user = context.user.userModel;
+	// User: {
+	// 	cart_items: async (obj, args, context) => {
+	// 		const models = context.db.models;
+	// 		log.info(
+	// 			`Request for cartItems received for ${context.user.customerId}`,
+	// 		);
+	// 		const user = context.user.userModel;
 
-			const cartItems = await user.getCartItem();
-			console.log(cartItems);
-			return cartItems;
-		},
-	},
+	// 		const cartItems = await user.getCartItem();
+	// 		// console.log(cartItems);
+	// 		return cartItems;
+	// 	},
+	// },
 };

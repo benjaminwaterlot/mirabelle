@@ -5,8 +5,10 @@ import wikiProductShema from '../data/wiki_product/wikiProductShema';
 import cartItemSchema from '../data/cart_item/cartItemSchema';
 import customerSchema from '../data/customer/customerSchema';
 import userSchema from '../data/user/userSchema';
+import { globalSchemas } from './initialize';
 
 export default [
+	globalSchemas,
 	packSchemas,
 	newsletterSchema,
 	productShema,

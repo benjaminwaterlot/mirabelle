@@ -35,6 +35,9 @@ app.use(middleware_jwt_invalid);
 
 // Catch unhandled errors and log them, then restart NodeJS.
 process.on('unhandledRejection', reason => {
-	log.error('\n\n\n🔥🔥🔥  ERROR: APP WILL STOP NOW.  🔥🔥🔥 \n\n\n', reason);
+	console.error(
+		'\n\n\n🔥🔥🔥  ERROR: APP WILL STOP NOW.  🔥🔥🔥 \n\n\n',
+		reason,
+	);
 	process.exit(1);
 });
