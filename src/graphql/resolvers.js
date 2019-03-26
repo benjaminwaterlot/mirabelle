@@ -5,6 +5,7 @@ import newsletterResolvers from '../data/newsletter/newsletterResolvers';
 import productResolvers from '../data/product/productResolvers';
 import cartItemResolvers from '../data/cart_item/cartItemResolvers';
 import customerResolvers from '../data/customer/customerResolvers';
+import userResolvers from '../data/user/userResolvers';
 
 const resolvers = _.merge({
 	...packResolvers,
@@ -12,5 +13,6 @@ const resolvers = _.merge({
 	...productResolvers,
 	...cartItemResolvers,
 	...customerResolvers,
+	...userResolvers,
 });
 export default resolvers;

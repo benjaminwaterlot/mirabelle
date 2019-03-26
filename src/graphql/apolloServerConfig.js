@@ -14,7 +14,11 @@ const getContextFromRequest = async (req, DB) => {
 	// TODO: REMOVE THIS LINE, USED TO TEST IN PLAYGROUND ONLY !
 	if (!rawUser)
 		return {
-			user: { roles: ['GUEST', 'ADMIN'], customerId: 1, userModel: null },
+			user: {
+				roles: ['GUEST', 'ADMIN'],
+				customerId: 1,
+				userModel: await DB.models.users.findOne({}),
+			},
 			db: DB,
 		};
 

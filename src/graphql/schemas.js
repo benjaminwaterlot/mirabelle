@@ -4,6 +4,7 @@ import productShema from '../data/product/productShema';
 import wikiProductShema from '../data/wiki_product/wikiProductShema';
 import cartItemSchema from '../data/cart_item/cartItemSchema';
 import customerSchema from '../data/customer/customerSchema';
+import userSchema from '../data/user/userSchema';
 
 export default [
 	packSchemas,
@@ -12,4 +13,5 @@ export default [
 	wikiProductShema,
 	cartItemSchema,
 	customerSchema,
+	userSchema,
 ];
