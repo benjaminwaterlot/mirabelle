@@ -1,0 +1,20 @@
+[
+	{
+		"group_type": "SHIPPING_POINT",
+		"name": "Boulangerie du Stade",
+		"street": "30, rue du stade",
+		"additional": null,
+		"postalcode": 74018,
+		"city": "LEVESINET",
+		"country": "FRANCE"
+	},
+	{
+		"group_type": "SHIPPING_POINT",
+		"name": "Boucherie des Landiers",
+		"street": "30, rue des landiers",
+		"additional": "au fond de la cour",
+		"postalcode": 74011,
+		"city": "PARIS",
+		"country": "FRANCE"
+	}
+]

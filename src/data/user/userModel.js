@@ -8,6 +8,9 @@ export default db => {
 			allowNull: false,
 			primaryKey: true,
 		},
+		customer_id: {
+			type: S.INTEGER,
+		},
 		role: {
 			type: S.ENUM(userRoles),
 			allowNull: false,

@@ -1,5 +1,5 @@
 const S = require('sequelize');
-import groupTypes from '../generic/groupTypes';
+import groupTypes from '../group/groupTypes';
 
 export default db => {
 	return db.define('customers', {
@@ -14,6 +14,9 @@ export default db => {
 		group_type: {
 			type: S.ENUM({ values: groupTypes }),
 			allowNull: false,
+		},
+		group_id: {
+			type: S.INTEGER,
 		},
 		birthdate: {
 			type: S.DATE,

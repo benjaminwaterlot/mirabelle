@@ -9,7 +9,7 @@ import newsletterModel from './newsletter/newsletterModel';
 import packModel from './pack/packModel';
 import cartItemModel from './cart_item/cartItemModel';
 import userModel from './user/userModel';
-import chalk from '../helpers/chalk';
+import log from '../helpers/log';
 
 const getDbUrl = () => {
 	const env = process.env.NODE_ENV;
@@ -35,7 +35,7 @@ class DB {
 			define: {
 				underscored: true,
 			},
-			logging: text => chalk.dim(text),
+			logging: text => log.dim(text),
 		});
 	}
 
@@ -44,16 +44,15 @@ class DB {
 		await this.db
 			.authenticate()
 			.then(() =>
-				chalk.ok('✪ Connection to POSTGRES has been established.'),
+				log.ok('✪ Connection to POSTGRES has been established.'),
 			)
 			.catch(err => {
-				chalk.error('CANNOT AUTHENTICATE :\n', err);
+				log.error('CANNOT AUTHENTICATE :\n', err);
 				throw err;
 			});
 
 		// Define and link the Sequelize models.
 		const User = userModel(this.db);
-
 		const Customer = customerModel(this.db);
 		User.belongsTo(Customer);
 
@@ -75,21 +74,24 @@ class DB {
 		});
 
 		const Newsletters = newsletterModel(this.db);
-
 		const CartItem = cartItemModel(this.db);
-		Customer.hasMany(CartItem, { as: 'CartItem' });
 
+		User.hasMany(CartItem, { as: 'CartItem' });
 		CartItem.belongsTo(Product);
 
 		await this.db.sync();
 
-		const sampleCustomer = await Customer.findOne({
-			where: { surname: 'Benjamin' },
-		});
-		const sampleCartItem = await CartItem.create();
-		await sampleCartItem.setProduct(await Product.findOne({}));
-		await sampleCustomer.addCartItem(sampleCartItem);
-		const sampleItems = await sampleCustomer.getCartItem();
+		const sampleUser = await User.findOne({});
+		if (sampleUser) {
+			const sampleCartItem = await CartItem.create();
+			await sampleCartItem.setProduct(await Product.findOne({}));
+			await sampleUser.addCartItem(sampleCartItem);
+			const sampleItems = await sampleUser.getCartItem();
+			log.dim(
+				`The user ${sampleUser.email} has in his cart: `,
+				sampleItems,
+			);
+		}
 
 		//
 		//
