@@ -1,7 +1,6 @@
 export default {
 	Query: {
 		getCurrentProducts: async (obj, args, context) => {
-			console.log('TESTING');
 			const products = context.db.models.products;
 
 			const allProducts = await products.findAll({
@@ -11,9 +10,6 @@ export default {
 					},
 				],
 			});
-			console.log(allProducts);
-
-			// return [1, 2];
 			return allProducts;
 		},
 	},

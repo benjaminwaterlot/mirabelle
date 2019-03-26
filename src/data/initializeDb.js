@@ -1,14 +1,15 @@
 const S = require('sequelize');
-const chalk = require('chalk');
 
-import getCustomerModel from './customer/customerModel';
-import getGroupModel from './group/groupModel';
-import getProductModel from './product/productModel';
-import getWikiProductsModel from './wiki_product/wikiProductModel';
-import getWikiPackModel from './wiki_pack/wikiPackModel';
-import getNewsletterModel from './newsletter/newsletterModel';
-import getPackModel from './pack/packModel';
-import getCartItemModel from './cart_item/cartItemModel';
+import customerModel from './customer/customerModel';
+import groupModel from './group/groupModel';
+import productModel from './product/productModel';
+import wikiProductsModel from './wiki_product/wikiProductModel';
+import wikiPackModel from './wiki_pack/wikiPackModel';
+import newsletterModel from './newsletter/newsletterModel';
+import packModel from './pack/packModel';
+import cartItemModel from './cart_item/cartItemModel';
+import userModel from './user/userModel';
+import chalk from '../helpers/chalk';
 
 const getDbUrl = () => {
 	const env = process.env.NODE_ENV;
@@ -34,7 +35,7 @@ class DB {
 			define: {
 				underscored: true,
 			},
-			logging: text => console.log(chalk.dim(text)),
+			logging: text => chalk.dim(text),
 		});
 	}
 
@@ -43,37 +44,39 @@ class DB {
 		await this.db
 			.authenticate()
 			.then(() =>
-				console.log('✪ Connection to POSTGRES has been established.'),
+				chalk.ok('✪ Connection to POSTGRES has been established.'),
 			)
 			.catch(err => {
-				console.error('CANNOT AUTHENTICATE :\n', err);
+				chalk.error('CANNOT AUTHENTICATE :\n', err);
 				throw err;
 			});
 
 		// Define and link the Sequelize models.
-		const Customer = getCustomerModel(this.db);
-		const Group = getGroupModel(this.db);
-		Customer.belongsTo(Group);
-		// Group.hasMany(Customer);
+		const User = userModel(this.db);
 
-		const Product = getProductModel(this.db);
-		const Wiki = getWikiProductsModel(this.db);
+		const Customer = customerModel(this.db);
+		User.belongsTo(Customer);
+
+		const Group = groupModel(this.db);
+		Customer.belongsTo(Group);
+
+		const Product = productModel(this.db);
+		const Wiki = wikiProductsModel(this.db);
 		Product.belongsTo(Wiki, {
 			foreignKey: 'wiki_product_ref',
 			targetKey: 'ref',
 		});
 
-		const Pack = getPackModel(this.db);
-		const PackWiki = getWikiPackModel(this.db);
+		const Pack = packModel(this.db);
+		const PackWiki = wikiPackModel(this.db);
 		Pack.belongsTo(PackWiki, {
 			foreignKey: 'wiki_pack_ref',
 			targetKey: 'ref',
 		});
 
-		const Newsletters = getNewsletterModel(this.db);
+		const Newsletters = newsletterModel(this.db);
 
-		const CartItem = getCartItemModel(this.db);
-		// CartItem.hasOne(Customer);
+		const CartItem = cartItemModel(this.db);
 		Customer.hasMany(CartItem, { as: 'CartItem' });
 
 		CartItem.belongsTo(Product);

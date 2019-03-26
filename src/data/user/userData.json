@@ -1,0 +1,16 @@
+[
+	{
+		"user_id": "5c73cbe069833950d9bdb467",
+		"id": 1,
+		"role": "ADMIN",
+		"email": "waterlotbenjamin@gmail.com",
+		"phone": "010101010"
+	},
+	{
+		"user_id": "5c76569cde2ba70e2905d9d4",
+		"id": 2,
+		"role": "GUEST",
+		"email": "test@gmail.com",
+		"phone": "010101010"
+	}
+]

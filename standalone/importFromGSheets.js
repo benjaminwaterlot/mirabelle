@@ -1,3 +1,5 @@
+import log from '../src/helpers/log';
+
 const GoogleSpreadsheet = require('google-spreadsheet');
 const _ = require('lodash');
 const { promisify } = require('util');
@@ -7,9 +9,7 @@ const doc = new GoogleSpreadsheet(
 );
 
 export default async () => {
-	const info = await promisify(doc.getInfo)().catch(err =>
-		console.error(err),
-	);
+	const info = await promisify(doc.getInfo)().catch(err => log.error(err));
 
 	for (const sheet of info.worksheets) {
 		console.log(sheet.title);

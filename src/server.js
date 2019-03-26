@@ -6,6 +6,7 @@ import middleware_jwt_invalid from './middlewares/middleware_jwt_invalid';
 
 import apolloServer from './graphql/apolloServerConfig';
 import DB from './data/initializeDb';
+import chalk from './helpers/chalk';
 
 const app = express();
 
@@ -23,18 +24,18 @@ app.use(middleware_jwt_invalid);
 // Launch the server
 
 (async () => {
-	console.log('✪ ENVIRONMENT IS : ', process.env.NODE_ENV);
+	chalk.info('✪ ENVIRONMENT IS : ', process.env.NODE_ENV);
 	await DB.initializeDb();
 	apolloServer.applyMiddleware({ app });
 
 	app.listen({ port: process.env.PORT || 4000 }, () =>
-		console.debug('\n✪ Server ready ! 🚀'),
+		chalk.info('\n✪ Server ready ! 🚀'),
 	);
 })();
 
 // Catch unhandled errors and log them, then restart NodeJS.
 process.on('unhandledRejection', reason => {
-	console.error(
+	chalk.error(
 		'\n\n\n🔥🔥🔥  ERROR: APP WILL STOP NOW.  🔥🔥🔥 \n\n\n',
 		reason,
 	);

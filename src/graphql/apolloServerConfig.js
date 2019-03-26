@@ -1,5 +1,6 @@
 const { ApolloServer } = require('apollo-server-express');
 const _ = require('lodash');
+import chalk from '../helpers/chalk';
 
 import resolvers from './resolvers';
 import schemas from './schemas';
@@ -9,9 +10,8 @@ import DB from '../data/initializeDb';
 
 const getContextFromRequest = async (req, DB) => {
 	// TODO: REMOVE THIS LINE, USED TO TEST IN PLAYGROUND
-
-	// if (!req.user)
-	// 	return { user: { roles: ['GUEST', 'ADMIN'], customerId: 1 }, db: DB };
+	if (!req.user)
+		return { user: { roles: ['GUEST', 'ADMIN'], customerId: 1 }, db: DB };
 
 	const rawUser = req.user;
 	const defaultRole = ['GUEST'];
@@ -26,7 +26,7 @@ const getContextFromRequest = async (req, DB) => {
 		: defaultId;
 
 	const user = { roles, customerId };
-	console.debug(`▻ User recognized as :\n`, user);
+	chalk.info(`▻ User recognized as :\n`, user);
 
 	// User's infos are complete.
 	return { user: user, db: DB };

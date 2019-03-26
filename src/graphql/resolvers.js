@@ -13,5 +13,4 @@ const resolvers = _.merge({
 	...cartItemResolvers,
 	...customerResolvers,
 });
-console.log(resolvers);
 export default resolvers;
