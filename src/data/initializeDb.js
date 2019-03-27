@@ -1,4 +1,5 @@
 const S = require('sequelize');
+import _ from 'lodash';
 
 import customerModel from './customer/customerModel';
 import groupModel from './group/groupModel';
@@ -10,6 +11,7 @@ import packModel from './pack/packModel';
 import cartItemModel from './cart_item/cartItemModel';
 import userModel from './user/userModel';
 import log from '../helpers/log';
+import logDbAssociations from '../helpers/logDbAssociations';
 
 const getDbUrl = () => {
 	const env = process.env.NODE_ENV;
@@ -35,7 +37,8 @@ class DB {
 			define: {
 				underscored: true,
 			},
-			logging: text => log.dim(text),
+			logging: text =>
+				typeof text === 'string' ? log.dim(text) : console.info(text),
 		});
 	}
 
@@ -64,6 +67,7 @@ class DB {
 		Product.belongsTo(WikiProduct, {
 			foreignKey: 'wiki_product_ref',
 			targetKey: 'ref',
+			as: 'WikiProduct',
 		});
 
 		const Pack = packModel(this.db);
@@ -71,60 +75,20 @@ class DB {
 		Pack.belongsTo(PackWiki, {
 			foreignKey: 'wiki_pack_ref',
 			targetKey: 'ref',
+			as: 'WikiPack',
 		});
 
 		const Newsletters = newsletterModel(this.db);
 		const CartItem = cartItemModel(this.db);
 
 		User.hasMany(CartItem, { as: 'CartItem' });
-		// CartItem.hasOne(User);
 		CartItem.belongsTo(Product);
 
 		await this.db.sync();
 
-		const sampleUser = await User.findOne({});
-		if (sampleUser) {
-			const sampleCartItem = await CartItem.create();
-			await sampleCartItem.setProduct(await Product.findOne({}));
-			await sampleUser.addCartItem(sampleCartItem);
-			const sampleItems = await sampleUser.getCartItem();
-			log.dim(
-				`The user ${sampleUser.email} has in his cart: `,
-				sampleItems,
-			);
-		}
-		const sampleProduct = await Product.findOne({});
-		try {
-			log.info(sampleProduct);
-			console.log(sampleProduct);
-			// log.info(await sampleProduct.getWikiProduct());
-			// await sampleProduct.setWikiProduct(await WikiProduct.findOne({}));
-			log.info(await sampleProduct.getWikiProduct());
-		} catch (err) {
-			console.error('errrrr', err);
-		}
+		testCartInsertion({ User, CartItem, Product });
 
-		//
-		//
-		// OLD BASKET IMPLEMENTATION
-		// Product.belongsToMany(Customer, {
-		// 	through: 'baskets',
-		// });
-		// Customer.belongsToMany(Product, {
-		// 	through: 'baskets',
-		// 	as: 'BasketProduct',
-		// });
-
-		// await this.db.sync();
-
-		// const sampleProduct = await Product.findOne({
-		// 	where: { ref: 'FLBANAN0CR' },
-		// });
-		// const sampleCustomer = await Customer.findOne({});
-		// await sampleCustomer.addBasketProduct(await Product.findOne({}));
-		// OLD BASKET IMPLEMENTATION
-		//
-		//
+		logDbAssociations(this.db.models);
 
 		// Synchronyze these models with the DB.
 		await this.db.sync();
@@ -133,3 +97,15 @@ class DB {
 }
 
 export default new DB();
+
+const testCartInsertion = async ({ User, CartItem, Product }) => {
+	const sampleUser = await User.findOne({});
+	if (sampleUser) {
+		const sampleCartItem = await CartItem.create();
+		const allProducts = await Product.findAll({});
+		await sampleCartItem.setProduct(_.sample(allProducts));
+		await sampleUser.addCartItem(sampleCartItem);
+		const sampleItems = await sampleUser.getCartItem();
+		log.dim(`The user ${sampleUser.email} has in his cart: `, sampleItems);
+	}
+};

@@ -15,6 +15,9 @@ export default db => {
 			type: S.STRING,
 			allowNull: false,
 		},
+		wiki_product_ref: {
+			type: S.STRING,
+		},
 		picture: {
 			type: S.STRING,
 			allowNull: false,
@@ -93,6 +96,5 @@ export default db => {
 		certification: {
 			type: S.BOOLEAN,
 		},
-		// TODO: LINK THE PRODUCT WITH HIS WIKI ID.
 	});
 };

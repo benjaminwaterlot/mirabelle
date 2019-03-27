@@ -10,6 +10,7 @@ export default {
 				include: [
 					{
 						model: context.db.models.wiki_products,
+						as: 'WikiProduct',
 					},
 				],
 			});

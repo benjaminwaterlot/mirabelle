@@ -23,6 +23,8 @@ const getContextFromRequest = async (req, DB) => {
 
 	const defaultRole = ['GUEST'];
 
+	console.log(rawUser);
+
 	// Retrieve from the JWT his roles and id.
 	const roles = rawUser
 		? rawUser['https://basilicetmirabelle/roles'] || defaultRole
@@ -55,6 +57,9 @@ export default new ApolloServer({
 	schemaDirectives: { auth: authDirective },
 	typeDefs: schemas,
 	context: ({ req }) => {
+		console.log(req.headers);
+		// for (const prop in req) console.log(prop);
+		// console.log('cookies ', req.cookies, req.cookie);
 		return getContextFromRequest(req, DB.db);
 	},
 
