@@ -2,9 +2,9 @@ const S = require('sequelize');
 
 export default db => {
 	return db.define('wiki_packs', {
-		ref: {
+		id: {
 			type: S.STRING,
-			unique: true,
+			primaryKey: true,
 			allowNull: false,
 		},
 		name: {

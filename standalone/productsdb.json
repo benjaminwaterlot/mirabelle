@@ -1,6 +1,6 @@
 [
   {
-    "ref": "FLBANAN0CR",
+    "id": "FLBANAN0CR",
     "name": "Banane (700-800g)",
     "picture": "FLBBANA0.jpg",
     "origin": "Costa Rica",
@@ -20,7 +20,7 @@
     "certification": true
   },
   {
-    "ref": "EPBOEUF0FR",
+    "id": "EPBOEUF0FR",
     "name": "Boite de 6 Œufs",
     "picture": "EPBOEUF0.jpg",
     "origin": "France",
@@ -40,7 +40,7 @@
     "certification": true
   },
   {
-    "ref": "FLBAVOC0MX",
+    "id": "FLBAVOC0MX",
     "name": "Avocat Hass ",
     "picture": "FLBAVOC0.jpg",
     "origin": "Mexique",
@@ -61,7 +61,7 @@
     "certification": true
   },
   {
-    "ref": "FLBKIWI0FR",
+    "id": "FLBKIWI0FR",
     "name": "Kiwi ",
     "picture": "FLBKIWI0.jpg",
     "origin": "France",
@@ -81,7 +81,7 @@
     "certification": true
   },
   {
-    "ref": "BOXKIWI0FR",
+    "id": "BOXKIWI0FR",
     "name": "Box Kiwi (3kg)",
     "picture": "BOXKIWI0.jpg",
     "origin": "France",
@@ -101,7 +101,7 @@
     "certification": true
   },
   {
-    "ref": "BOXORAN0IT",
+    "id": "BOXORAN0IT",
     "name": "Box Orange (10kg)",
     "picture": "BOXORAN0.jpg",
     "origin": "Italie",
@@ -121,7 +121,7 @@
     "certification": true
   },
   {
-    "ref": "FLBORAN0IT",
+    "id": "FLBORAN0IT",
     "name": "Orange (1kg)",
     "picture": "FLBORAN0.jpg",
     "origin": "Italie",
@@ -141,7 +141,7 @@
     "certification": true
   },
   {
-    "ref": "FLBPOME0IL",
+    "id": "FLBPOME0IL",
     "name": "Pomelos Star Ruby",
     "picture": "FLBPOME0.jpg",
     "origin": "Israël",
@@ -161,7 +161,7 @@
     "certification": true
   },
   {
-    "ref": "FLBPOMM0FR",
+    "id": "FLBPOMM0FR",
     "name": "Pomme (500g)",
     "picture": "FLBPOMM0.jpg",
     "origin": "France",
@@ -182,7 +182,7 @@
     "certification": true
   },
   {
-    "ref": "FLBSALA0FR",
+    "id": "FLBSALA0FR",
     "name": "Salade",
     "picture": "FLBSALA0.jpg",
     "origin": "France",
@@ -202,7 +202,7 @@
     "certification": true
   },
   {
-    "ref": "FLBBETTE0FR",
+    "id": "FLBBETTE0FR",
     "name": "Betterave Rouge (500g)",
     "picture": "FLBBETTE.jpg",
     "origin": "France",
@@ -224,7 +224,7 @@
     "certification": true
   },
   {
-    "ref": "FLBCARO0FR",
+    "id": "FLBCARO0FR",
     "name": "Carotte Couleur",
     "picture": "FLBCARO0.jpg",
     "origin": "France",
@@ -245,7 +245,7 @@
     "certification": true
   },
   {
-    "ref": "FLBCELERFR",
+    "id": "FLBCELERFR",
     "name": "Céleri Rave",
     "picture": "FLBCELER.jpg",
     "origin": "France",

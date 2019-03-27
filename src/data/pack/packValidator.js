@@ -2,7 +2,7 @@ const Ajv = require('ajv');
 
 const schema = {
 	type: 'object',
-	required: ['label', 'description_short', 'origin', 'ref', 'price'],
+	required: ['label', 'description_short', 'origin', 'id', 'price'],
 	properties: {
 		description_short: { type: 'string' },
 		label: { type: 'string' },
@@ -14,7 +14,7 @@ const schema = {
 			description:
 				'The price of the product. Is an integer, expressed in cents.',
 		},
-		ref: { type: 'string' },
+		id: { type: 'string' },
 	},
 };
 

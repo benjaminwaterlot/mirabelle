@@ -17,11 +17,9 @@ export default db => {
 		},
 		email: {
 			type: S.STRING,
-			allowNull: false,
 		},
 		phone: {
 			type: S.STRING,
-			allowNull: false,
 		},
 	});
 };

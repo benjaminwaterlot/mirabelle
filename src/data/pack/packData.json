@@ -1,7 +1,7 @@
 [
 	{
-		"ref": "PNBSMIX1",
-		"wiki_pack_ref": "SMIX",
+		"id": "PNBSMIX1",
+		"wiki_pack_id": "SMIX",
 		"name": "Super Mix Individuel",
 		"pack_category": "MIX",
 		"price_ht": 14.218009478672986,
@@ -10,8 +10,8 @@
 		"weight": 2
 	},
 	{
-		"ref": "PNBSMIX2",
-		"wiki_pack_ref": "SMIX",
+		"id": "PNBSMIX2",
+		"wiki_pack_id": "SMIX",
 		"name": "Super Mix Duo",
 		"pack_category": "MIX",
 		"price_ht": 18.009478672985782,
@@ -20,8 +20,8 @@
 		"weight": 4
 	},
 	{
-		"ref": "PNBSMIX3",
-		"wiki_pack_ref": "SMIX",
+		"id": "PNBSMIX3",
+		"wiki_pack_id": "SMIX",
 		"name": "Super Mix Famille",
 		"pack_category": "MIX",
 		"price_ht": 25.118483412322277,
@@ -30,8 +30,8 @@
 		"weight": 5
 	},
 	{
-		"ref": "PNBSMIX4",
-		"wiki_pack_ref": "SMIX",
+		"id": "PNBSMIX4",
+		"wiki_pack_id": "SMIX",
 		"name": "Super Mix Tribu",
 		"pack_category": "MIX",
 		"price_ht": 32.22748815165877,
@@ -40,8 +40,8 @@
 		"weight": 7
 	},
 	{
-		"ref": "PSBSMIX1",
-		"wiki_pack_ref": "SMIX",
+		"id": "PSBSMIX1",
+		"wiki_pack_id": "SMIX",
 		"name": "Mixte Individuel",
 		"pack_category": "MIX",
 		"price_ht": 11.402843601895734,
@@ -49,8 +49,8 @@
 		"weight": 3
 	},
 	{
-		"ref": "PSBSMIX2",
-		"wiki_pack_ref": "SMIX",
+		"id": "PSBSMIX2",
+		"wiki_pack_id": "SMIX",
 		"name": "Mixte Duo",
 		"pack_category": "MIX",
 		"price_ht": 16.398104265402846,
@@ -58,8 +58,8 @@
 		"weight": 5
 	},
 	{
-		"ref": "PSBSMIX3",
-		"wiki_pack_ref": "SMIX",
+		"id": "PSBSMIX3",
+		"wiki_pack_id": "SMIX",
 		"name": "Mixte Familial",
 		"pack_category": "MIX",
 		"price_ht": 25.402843601895736,
@@ -67,8 +67,8 @@
 		"weight": 7
 	},
 	{
-		"ref": "PNBFRUI1",
-		"wiki_pack_ref": "FRUI",
+		"id": "PNBFRUI1",
+		"wiki_pack_id": "FRUI",
 		"name": "Super Fruitier Individuel",
 		"pack_category": "FRUITS",
 		"price_ht": 14.218009478672986,
@@ -77,8 +77,8 @@
 		"weight": 2
 	},
 	{
-		"ref": "PNBFRUI2",
-		"wiki_pack_ref": "FRUI",
+		"id": "PNBFRUI2",
+		"wiki_pack_id": "FRUI",
 		"name": "Super Fruitier Duo",
 		"pack_category": "FRUITS",
 		"price_ht": 18.009478672985782,
@@ -87,8 +87,8 @@
 		"weight": 4
 	},
 	{
-		"ref": "PNBFRUI3",
-		"wiki_pack_ref": "FRUI",
+		"id": "PNBFRUI3",
+		"wiki_pack_id": "FRUI",
 		"name": "Super Fruitier Famille",
 		"pack_category": "FRUITS",
 		"price_ht": 25.118483412322277,
@@ -97,8 +97,8 @@
 		"weight": 5
 	},
 	{
-		"ref": "PNBFRUI4",
-		"wiki_pack_ref": "FRUI",
+		"id": "PNBFRUI4",
+		"wiki_pack_id": "FRUI",
 		"name": "Super Fruitier Tribu",
 		"pack_category": "FRUITS",
 		"price_ht": 32.22748815165877,
@@ -107,8 +107,8 @@
 		"weight": 7
 	},
 	{
-		"ref": "PSBFRUI1",
-		"wiki_pack_ref": "FRUI",
+		"id": "PSBFRUI1",
+		"wiki_pack_id": "FRUI",
 		"name": "Fruitier Individuel",
 		"pack_category": "FRUITS",
 		"price_ht": 9.800947867298579,
@@ -117,8 +117,8 @@
 		"weight": 3
 	},
 	{
-		"ref": "PSBFRUI2",
-		"wiki_pack_ref": "FRUI",
+		"id": "PSBFRUI2",
+		"wiki_pack_id": "FRUI",
 		"name": "Fruitier Duo",
 		"pack_category": "FRUITS",
 		"price_ht": 14.900473933649291,
@@ -127,8 +127,8 @@
 		"weight": 5
 	},
 	{
-		"ref": "PSBFRUI3",
-		"wiki_pack_ref": "FRUI",
+		"id": "PSBFRUI3",
+		"wiki_pack_id": "FRUI",
 		"name": "Fruitier Familial",
 		"pack_category": "FRUITS",
 		"price_ht": 25.895734597156398,
@@ -137,8 +137,8 @@
 		"weight": 7
 	},
 	{
-		"ref": "PNBLEGU1",
-		"wiki_pack_ref": "LEGU",
+		"id": "PNBLEGU1",
+		"wiki_pack_id": "LEGU",
 		"name": "Super Légumier Individuel",
 		"pack_category": "VEGETABLES",
 		"price_ht": 14.218009478672986,
@@ -147,8 +147,8 @@
 		"weight": 2
 	},
 	{
-		"ref": "PNBLEGU2",
-		"wiki_pack_ref": "LEGU",
+		"id": "PNBLEGU2",
+		"wiki_pack_id": "LEGU",
 		"name": "Super Légumier Duo",
 		"pack_category": "VEGETABLES",
 		"price_ht": 18.009478672985782,
@@ -157,8 +157,8 @@
 		"weight": 4
 	},
 	{
-		"ref": "PNBLEGU3",
-		"wiki_pack_ref": "LEGU",
+		"id": "PNBLEGU3",
+		"wiki_pack_id": "LEGU",
 		"name": "Super Légumier Famille",
 		"pack_category": "VEGETABLES",
 		"price_ht": 25.118483412322277,
@@ -167,8 +167,8 @@
 		"weight": 5
 	},
 	{
-		"ref": "PNBLEGU4",
-		"wiki_pack_ref": "LEGU",
+		"id": "PNBLEGU4",
+		"wiki_pack_id": "LEGU",
 		"name": "Super Légumier Tribu",
 		"pack_category": "VEGETABLES",
 		"price_ht": 32.22748815165877,
@@ -177,8 +177,8 @@
 		"weight": 7
 	},
 	{
-		"ref": "PSBLEGU1",
-		"wiki_pack_ref": "LEGU",
+		"id": "PSBLEGU1",
+		"wiki_pack_id": "LEGU",
 		"name": "Légumier Individuel",
 		"pack_category": "VEGETABLES",
 		"price_ht": 11.497630331753555,
@@ -186,8 +186,8 @@
 		"weight": 3
 	},
 	{
-		"ref": "PSBLEGU2",
-		"wiki_pack_ref": "LEGU",
+		"id": "PSBLEGU2",
+		"wiki_pack_id": "LEGU",
 		"name": "Légumier Duo",
 		"pack_category": "VEGETABLES",
 		"price_ht": 16.900473933649288,
@@ -195,8 +195,8 @@
 		"weight": 5
 	},
 	{
-		"ref": "PSBLEGU3",
-		"wiki_pack_ref": "LEGU",
+		"id": "PSBLEGU3",
+		"wiki_pack_id": "LEGU",
 		"name": "Légumier Familial",
 		"pack_category": "VEGETABLES",
 		"price_ht": 28.79620853080569,
@@ -204,8 +204,8 @@
 		"weight": 7
 	},
 	{
-		"ref": "PNBDECO1",
-		"wiki_pack_ref": "DECO",
+		"id": "PNBDECO1",
+		"wiki_pack_id": "DECO",
 		"name": "Panier Découverte",
 		"pack_category": "MIX",
 		"price_ht": 9.47867298578199,

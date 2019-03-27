@@ -2,7 +2,7 @@ const { gql } = require('apollo-server-express');
 
 export default gql`
 	type Product {
-		ref: String!
+		id: String!
 		name: String!
 		picture: String!
 		origin: String!
@@ -10,7 +10,7 @@ export default gql`
 		price_ht: Float!
 		bio: Boolean!
 		getWikiProduct: WikiProduct!
-		wiki_product_ref: String!
+		wiki_product_id: String!
 	}
 
 	extend type Query {

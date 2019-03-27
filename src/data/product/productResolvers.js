@@ -14,6 +14,7 @@ export default {
 					},
 				],
 			});
+			console.log(allProducts);
 			return allProducts;
 		},
 	},

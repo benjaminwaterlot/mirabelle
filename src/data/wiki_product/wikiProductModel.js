@@ -2,7 +2,7 @@ const S = require('sequelize');
 
 export default db => {
 	return db.define('wiki_products', {
-		ref: {
+		id: {
 			type: S.STRING,
 			primaryKey: true,
 			// unique: true,
@@ -40,7 +40,7 @@ export default db => {
 		nutrition: {
 			type: S.TEXT,
 		},
-		supply_ref: {
+		supply_id: {
 			type: S.STRING,
 		},
 		image: {

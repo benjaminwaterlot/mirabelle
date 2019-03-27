@@ -3,24 +3,15 @@ import log from '../../helpers/log';
 export default {
 	Query: {
 		user: async (obj, args, context) => {
-			const contextUserId = context.user.userModel.id;
+			const mySelf = args.mySelf;
 
-			// TODO : Remove this to secure the access or add auth directive.
-			// const userId = args.userId ? args.userId : contextUserId
-			return context.user.userModel;
+			if (mySelf) {
+				const contextUserId = context.user.id;
+				log.info(`USER RESOLVER FOUND THIS USER: ${contextUserId}`);
+			}
+
+			// TODO: IMPLEMENT SEARCHING FOR ANOTHER USER. (admin only)
+			return context.user;
 		},
 	},
-	// User: {
-	// 	cart_items: async (obj, args, context) => {
-	// 		const models = context.db.models;
-	// 		log.info(
-	// 			`Request for cartItems received for ${context.user.customerId}`,
-	// 		);
-	// 		const user = context.user.userModel;
-
-	// 		const cartItems = await user.getCartItem();
-	// 		// console.log(cartItems);
-	// 		return cartItems;
-	// 	},
-	// },
 };

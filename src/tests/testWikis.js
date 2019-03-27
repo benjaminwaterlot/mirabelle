@@ -5,7 +5,7 @@ export const insertWikis = async ({ wiki_products: Wiki }) => {
 	const fakeWikis = [];
 	for (const i of _.range(9)) {
 		fakeWikis[i] = Wiki.create({
-			ref: faker.random.uuid(),
+			id: faker.random.uuid(),
 			description: faker.lorem.sentence(12),
 			descriptionLong: faker.lorem.sentences(3),
 			fragility: faker.random.number({ min: 1, max: 10, precision: 1 }),

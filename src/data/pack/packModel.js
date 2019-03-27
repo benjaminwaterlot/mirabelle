@@ -3,12 +3,12 @@ import packCategories from './packCategories.json';
 
 export default db => {
 	return db.define('packs', {
-		ref: {
+		id: {
 			type: S.STRING,
-			unique: true,
 			allowNull: false,
+			primaryKey: true,
 		},
-		wiki_pack_ref: {
+		wiki_pack_id: {
 			type: S.STRING,
 			allowNull: false,
 		},

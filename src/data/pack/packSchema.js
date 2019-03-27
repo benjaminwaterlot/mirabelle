@@ -2,7 +2,7 @@ const { gql } = require('apollo-server-express');
 
 export default gql`
 	type Wiki {
-		ref: String
+		id: String
 		name: String
 		description_short: String
 		description_long: String

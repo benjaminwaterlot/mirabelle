@@ -57,31 +57,33 @@ class DB {
 		// Define and link the Sequelize models.
 		const User = userModel(this.db);
 		const Customer = customerModel(this.db);
-		User.belongsTo(Customer);
 
 		const Group = groupModel(this.db);
-		Customer.belongsTo(Group);
 
 		const Product = productModel(this.db);
 		const WikiProduct = wikiProductModel(this.db);
-		Product.belongsTo(WikiProduct, {
-			foreignKey: 'wiki_product_ref',
-			targetKey: 'ref',
-			as: 'WikiProduct',
-		});
 
 		const Pack = packModel(this.db);
 		const PackWiki = wikiPackModel(this.db);
-		Pack.belongsTo(PackWiki, {
-			foreignKey: 'wiki_pack_ref',
-			targetKey: 'ref',
-			as: 'WikiPack',
-		});
 
 		const Newsletters = newsletterModel(this.db);
 		const CartItem = cartItemModel(this.db);
 
-		User.hasMany(CartItem, { as: 'CartItem' });
+		User.belongsTo(Customer);
+		Customer.belongsTo(Group);
+		Product.belongsTo(WikiProduct, {
+			foreignKey: 'wiki_product_id',
+			targetKey: 'id',
+			as: 'WikiProduct',
+		});
+		Pack.belongsTo(PackWiki, {
+			foreignKey: 'wiki_pack_id',
+			targetKey: 'id',
+			as: 'WikiPack',
+		});
+		User.hasMany(CartItem, {
+			as: { singular: 'CartItem', plural: 'CartItems' },
+		});
 		CartItem.belongsTo(Product);
 
 		await this.db.sync();
@@ -101,11 +103,13 @@ export default new DB();
 const testCartInsertion = async ({ User, CartItem, Product }) => {
 	const sampleUser = await User.findOne({});
 	if (sampleUser) {
-		const sampleCartItem = await CartItem.create();
 		const allProducts = await Product.findAll({});
-		await sampleCartItem.setProduct(_.sample(allProducts));
+		const sampleProduct = _.sample(allProducts);
+		const sampleCartItem = await CartItem.create({
+			product_id: sampleProduct.id,
+			user_id: sampleUser.id,
+		});
 		await sampleUser.addCartItem(sampleCartItem);
-		const sampleItems = await sampleUser.getCartItem();
-		log.dim(`The user ${sampleUser.email} has in his cart: `, sampleItems);
+		const sampleItems = await sampleUser.getCartItems();
 	}
 };

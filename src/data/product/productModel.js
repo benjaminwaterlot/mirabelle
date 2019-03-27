@@ -5,17 +5,16 @@ import productQuantifiers from '../generic/productQuantifiers';
 
 export default db => {
 	return db.define('products', {
-		ref: {
+		id: {
 			type: S.STRING,
 			allowNull: false,
-			unique: true,
 			primaryKey: true,
 		},
 		name: {
 			type: S.STRING,
 			allowNull: false,
 		},
-		wiki_product_ref: {
+		wiki_product_id: {
 			type: S.STRING,
 		},
 		picture: {
@@ -31,6 +30,7 @@ export default db => {
 		},
 		price_ht: {
 			type: S.DOUBLE,
+			allowNull: false,
 		},
 		promo_price_ht: {
 			type: S.DOUBLE,

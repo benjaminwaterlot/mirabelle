@@ -7,7 +7,7 @@ export const insertProducts = async ({ products: Product }) => {
 	const fakeProducts = [];
 	for (const i of _.range(10)) {
 		fakeProducts[i] = Product.create({
-			ref: faker.random.uuid(),
+			id: faker.random.uuid(),
 			name: faker.random.word(),
 			picture: faker.random.alphaNumeric(5) + '.jpg',
 			origin: faker.address.country(),
